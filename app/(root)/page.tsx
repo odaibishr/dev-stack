@@ -1,6 +1,11 @@
+import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
 
-const Page = () => {
+const Page = async () => {
+  const session = await auth();
+  console.log(session);
+
   return (
     <div>
       <h1 className="text-2xl font-bold">
@@ -9,7 +14,18 @@ const Page = () => {
       <h1 className="text-2xl font-bold font-space-grotesk">
         Hello There In Space Grotesk 👋
       </h1>
-      <Button variant={"outline"}>Button</Button>
+      <form
+        action={async () => {
+          "use server";
+          await signOut({
+            redirectTo: ROUTES.SIGN_IN,
+          });
+        }}
+      >
+        <Button type="submit" variant="outline">
+          LogOut
+        </Button>
+      </form>
     </div>
   );
 };

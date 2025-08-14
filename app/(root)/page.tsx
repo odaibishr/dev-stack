@@ -1,13 +1,12 @@
 import { auth, signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 
-const Page = async () => {
+const Home = async () => {
   const session = await auth();
   console.log(session);
 
   return (
-    <div>
+    <div className="mt-20">
       <h1 className="text-2xl font-bold">
         Hello There In Inter Space Grotesk👋
       </h1>
@@ -21,13 +20,9 @@ const Page = async () => {
             redirectTo: ROUTES.SIGN_IN,
           });
         }}
-      >
-        <Button type="submit" variant="outline">
-          LogOut
-        </Button>
-      </form>
+      ></form>
     </div>
   );
 };
 
-export default Page;
+export default Home;

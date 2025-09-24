@@ -4,6 +4,8 @@ import React from "react";
 
 import ROUTES from "@/constants/routes";
 
+import TagCards from "../cards/TagCards";
+
 const hotQuestions = [
   {
     id: "1",
@@ -24,6 +26,34 @@ const hotQuestions = [
   {
     id: "5",
     title: "When to use React?",
+  },
+];
+
+const popularTags = [
+  {
+    _id: "1",
+    name: "react",
+    questions: 10,
+  },
+  {
+    _id: "2",
+    name: "javascript",
+    questions: 15,
+  },
+  {
+    _id: "3",
+    name: "typescript",
+    questions: 20,
+  },
+  {
+    _id: "4",
+    name: "node.js",
+    questions: 25,
+  },
+  {
+    _id: "5",
+    name: "nextjs",
+    questions: 30,
   },
 ];
 
@@ -54,6 +84,22 @@ const RightSidebar = () => {
                 className="invert-colors"
               />
             </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-16">
+        <h3 className="h3-bold text-dark200_light900">Popular Tags</h3>
+        <div className="mt-7 flex flex-col gap-4">
+          {popularTags.map(({ _id, name, questions }) => (
+            <TagCards
+              key={_id}
+              _id={_id}
+              name={name}
+              questions={questions}
+              showCount
+              compact
+            />
           ))}
         </div>
       </div>

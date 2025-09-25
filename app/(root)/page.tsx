@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import LocalSearch from "@/components/search/LocalSearch";
 
 const Home = async () => {
   return (
@@ -16,7 +17,9 @@ const Home = async () => {
           <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
         </Button>
       </section>
-      <section className="mt-12">LocalSearch</section>
+      <section className="mt-12">
+        <LocalSearch />
+      </section>
       HomeFilter
 
       <div className="mt-10 flex flex-col w-full gap-6">
